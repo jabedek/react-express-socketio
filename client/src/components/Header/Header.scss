@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+
+.header {
+  //   width: 100vw;
+  //   height: 10vh;
+  margin: 0;
+  padding: 1rem;
+
+  grid-area: header;
+  align-items: start;
+
+  justify-self: start;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+
+  perspective: 100px;
+}
+
+.logo {
+  grid-column: 1 / span 4;
+  grid-row: 1 / span 1;
+  color: #ffff00;
+  text-align: left;
+  font: italic 500 3.5vw "Monoton", sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0.2rem 0.2rem 0.15rem black;
+  text-shadow: 0.2rem 0.2rem 0.15rem rgba(250, 95, 105, 0.7);
+  letter-spacing: 0.35rem;
+  user-select: none;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateZ(0deg);
+  color: transparent;
+  color: rgba(255, 255, 0, 0.9);
+  text-shadow: 0 0 5px rgba(255, 255, 0, 1);
+  position: absolute;
+  z-index: 2;
+  font-variant: small-caps;
+}
+
+.logo > span {
+  color: rgb(210, 50, 50);
+}

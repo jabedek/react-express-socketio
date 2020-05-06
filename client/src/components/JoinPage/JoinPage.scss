@@ -1,0 +1,80 @@
+.Join {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  font: 400 2.7rem Montserrat;
+  position: absolute;
+  z-index: 2;
+
+  grid-template-areas:
+    "header  header  header header"
+    ".       .       .       ."
+    ".       .       .       ."
+    ".       .       .       ."
+    ".       .       .       ."
+    ".       .       .       .";
+
+  //   overflow: hidden;
+}
+
+.join-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  background: linear-gradient(
+      -40deg,
+      rgba(255, 0, 255, 0.2) 0%,
+      rgba(255, 0, 255, 0.2) 15%,
+      rgba(255, 0, 255, 0.4) 35%,
+      rgba(250, 15, 100, 0.2) 60%,
+      rgba(250, 15, 100, 0.1) 70%
+    ),
+    linear-gradient(
+      155deg,
+      rgba(255, 10, 80, 0) 0%,
+      rgba(255, 10, 80, 0.05) 50%,
+      rgba(255, 10, 80, 0.1) 60%,
+      rgba(255, 10, 80, 0.3) 80%,
+      rgba(255, 10, 80, 0.5) 95%
+    ),
+    linear-gradient(
+      -145deg,
+      rgba(0, 255, 255, 0.1) 10%,
+      rgba(0, 255, 255, 0.9) 65%,
+      rgba(5, 150, 250, 0.9) 88%
+    );
+}
+
+.panorama {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.15;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &__image {
+    position: relative;
+
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    filter: blur(0.5px);
+  }
+}
