@@ -6,7 +6,6 @@ import { Button } from "../Button/Button";
 export class JoinForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(">", this.props.socket);
     this.state = {
       username: "",
       classAnimate: "animation-appear",
@@ -90,13 +89,7 @@ export class JoinForm extends React.Component {
 
         <div className="button-wrapper" style={this.state.btnVisibility}>
           <Link to="chat">
-            <Button
-              handleClick={() => {
-                console.log();
-              }}
-              text={"Go"}
-              classes={"join-button"}
-            />
+            <Button text={"Go"} classes={"join-button"} />
           </Link>
         </div>
       </form>

@@ -38,19 +38,26 @@ io.on("connection", (client) => {
   console.log(client.id);
 
   // Welcome current user
-  client.emit("message", "Welcome to Cyberchat!");
+  client.emit("SERVER_WELCOME_MESSAGE", "Welcome to Cyberchat @ SocketIO.");
 
   // Broadcast when a user connects
-  client.broadcast.emit("message", "User has joined the chat");
+  client.broadcast.emit("SERVER_MESSAGE", "User has joined the chat");
 
   // Runs when client disconnects
   client.on("disconnect", () => {
-    io.emit("message", "A user has left the chat");
+    io.emit("SERVER_MESSAGE", "A user has left the chat");
+  });
+
+  client.on("USER_JOIN", (message) => {
+    client.emit("SERVER_REGISTER_MESSAGE", {
+      text: `Welcome to Cyberchat!`,
+      username: message.username,
+    });
   });
 
   // Listen for chatMessage
-  client.on("chatMessage", (message) => {
-    console.log(message);
-    io.emit("message", message);
+  client.on("USER_MESSAGE", (message) => {
+    console.log("received: ", message);
+    io.emit("SERVER_MESSAGE", message);
   });
 });
