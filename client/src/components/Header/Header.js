@@ -1,13 +1,7 @@
 import "./Header.scss";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Header = () => {
-  const [logo, setLogo] = useState("cyberchat");
-
-  useEffect(() => {
-    console.log("did mount");
-  }, []);
-
   return (
     <>
       <header className="header">
@@ -16,7 +10,7 @@ const Header = () => {
           data-text="
 glitch"
         >
-          {logo}
+          cyberchat
         </h1>
       </header>
     </>

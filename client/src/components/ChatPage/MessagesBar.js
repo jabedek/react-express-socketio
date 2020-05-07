@@ -1,7 +1,7 @@
 import React from "react";
 import "./MessagesBar.scss";
 
-export const MessagesBar = () => {
+export const MessagesBar = (props) => {
   return (
     <div className="messages-bar">
       <label className="messages-bar__header">Messages</label>

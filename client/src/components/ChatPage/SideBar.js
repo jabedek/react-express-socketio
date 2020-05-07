@@ -1,5 +1,5 @@
 import "./SideBar.scss";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export const SideBar = () => {
   return (
@@ -8,8 +8,8 @@ export const SideBar = () => {
 
       <ul className="sidebar__list">
         <li className="sidebar__item">
-          <i className="fas fa-comments"></i> Room Name:
-          <h2 id="room-name"></h2>
+          <i className="fas fa-comments"></i> Room:
+          <p id="room-name"></p>
         </li>
 
         <li className="sidebar__item">

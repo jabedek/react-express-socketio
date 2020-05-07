@@ -1,20 +1,17 @@
 require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
-
+const socket = require("socket.io");
 const path = require("path");
 const logger = require("./middleware/logger");
 
-const app = express();
 const PORT = process.env.PORT || 5000;
+
+const app = express();
 
 app.use(logger);
 app.use(express.json());
 
-// Serve the static files from the React app (like icons???????)
-// app.use(express.static(path.join(__dirname, "client/build")));
-
-// GET home page of Server
+//  GET home page of Server
 app.get("/", function (req, res, next) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -31,6 +28,29 @@ app.get("/*", (req, res) => {
   res.status(400).sendFile(path.join(__dirname, "404.html"));
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log("Listening on", PORT);
+});
+
+io = socket(server);
+
+io.on("connection", (client) => {
+  console.log(client.id);
+
+  // Welcome current user
+  client.emit("message", "Welcome to Cyberchat!");
+
+  // Broadcast when a user connects
+  client.broadcast.emit("message", "User has joined the chat");
+
+  // Runs when client disconnects
+  client.on("disconnect", () => {
+    io.emit("message", "A user has left the chat");
+  });
+
+  // Listen for chatMessage
+  client.on("chatMessage", (message) => {
+    console.log(message);
+    io.emit("message", message);
+  });
 });

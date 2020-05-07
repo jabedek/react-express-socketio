@@ -9,14 +9,13 @@ import "../src/common/styles/index.scss";
 class App extends React.Component {
   render() {
     const App = () => (
-      <div>
-        <Switch>
-          <Route exact path="/" component={JoinPage} />
-          <Route exact path="/chat" component={ChatPage} />
-          <Route exact path="/list" component={List} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/" component={JoinPage} />
+        <Route exact path="/chat" component={ChatPage} />
+        <Route exact path="/list" component={List} />
+      </Switch>
     );
+
     return (
       <Switch>
         <App />
