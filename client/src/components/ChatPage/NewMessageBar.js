@@ -5,20 +5,19 @@ import "./NewMessageBar.scss";
 export const NewMessageBar = () => {
   const [message, setMessage] = useState({ body: "", sender: "", time: null });
 
-  const handleSubmit = () => {
-    console.log("submitting");
+  const handleSubmit = (event) => {
+    console.log("submitting", message);
   };
 
   return (
     <div className="new-message-bar">
       <label className="new-message-bar__header"></label>
 
-      <form class="message__form" id="message__form">
+      <form className="message__form" id="message__form">
         <textarea
           id="msg"
           type="text"
           placeholder="Enter a message"
-          required
           value={message.body}
           name="message"
           autoComplete="off"
@@ -30,20 +29,11 @@ export const NewMessageBar = () => {
           onKeyDown={(e) => {
             if (e.keyCode == 13 && e.shiftKey == false) {
               e.preventDefault();
-              handleSubmit();
+              handleSubmit(e);
             }
           }}
         />
-        {/* <button class="btn">
-          <i class="fas fa-paper-plane"></i> Send
-        </button> */}
-
-        <Button
-          handleClick={handleSubmit}
-          text={">"}
-          classes={"send-button"}
-          visibility={{ display: "flex" }}
-        />
+        <Button handleClick={handleSubmit} text={">"} classes={"send-button"} />
       </form>
     </div>
   );
