@@ -24,6 +24,8 @@ export default class ChatPage extends React.Component {
     connected: false,
     username: "",
     messages: [],
+    users: [],
+    room: "",
   };
 
   componentDidMount() {
@@ -43,6 +45,15 @@ export default class ChatPage extends React.Component {
       }
     });
 
+    // Get room and users
+    socket.on("ROOM_USERS", ({ room, users }) => {
+      console.log("ROOM USERS", room, users);
+
+      if (this._isMounted) {
+        this.setState({ room, users });
+      }
+    });
+
     socket.on("SERVER_REGISTER", (message) => {
       if (this._isMounted) {
         this.setState({
@@ -55,7 +66,9 @@ export default class ChatPage extends React.Component {
           console.log(">>>", newMessages);
           this.setState({ messages: newMessages });
         } else {
-          this.setState({ messages: [message.botMessage] });
+          this.setState({
+            messages: [message.botMessage],
+          });
         }
       }
 
@@ -93,7 +106,11 @@ export default class ChatPage extends React.Component {
         <Header />
         {this.state.connected ? (
           <div className="chat__board">
-            <SideBar username={this.state.username} />
+            <SideBar
+              username={this.state.username}
+              room={this.state.room}
+              users={this.state.users}
+            />
             <MessagesBar messages={this.state.messages} />
             <NewMessageBar username={this.state.username} />
           </div>

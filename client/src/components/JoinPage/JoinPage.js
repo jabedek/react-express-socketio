@@ -57,9 +57,9 @@ export default class JoinPage extends React.Component {
   };
 
   registerUsername = () => {
-    socket.emit("USER_CONN", {
+    socket.emit("USER_JOIN", {
       username: this.state.username,
-      time: moment().format("h:mm:ss"),
+      room: "Main",
     });
   };
 
