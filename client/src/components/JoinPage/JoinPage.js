@@ -7,6 +7,7 @@ import "./JoinForm.scss";
 import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { socket } from "../../service/socket";
+import moment from "moment";
 
 export default class JoinPage extends React.Component {
   constructor(props) {
@@ -24,8 +25,8 @@ export default class JoinPage extends React.Component {
   }
 
   componentDidMount() {
-    socket.on("SERVER_WELCOME_MESSAGE", (message) => {
-      console.log("[@JoinPage] SERVER_WELCOME_MESSAGE:\n", message);
+    socket.on("SERVER_WELCOME", (message) => {
+      console.log("SERVER_WELCOME:\n", message);
     });
 
     setTimeout(() => {
@@ -56,8 +57,9 @@ export default class JoinPage extends React.Component {
   };
 
   registerUsername = () => {
-    socket.emit("USER_JOIN", {
+    socket.emit("USER_CONN", {
       username: this.state.username,
+      time: moment().format("h:mm:ss"),
     });
   };
 

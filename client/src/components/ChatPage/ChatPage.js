@@ -28,12 +28,8 @@ export default class ChatPage extends React.Component {
 
   componentDidMount() {
     // socket.emit("chatMessage", {author: "", message: ""})
-    console.log("CDM ChatPage");
 
     this._isMounted = true;
-    socket.on("USER_MESSAGE", (message) => {
-      console.log("[@ChatPage] USER_MESSAGE:\n", message);
-    });
 
     socket.on("SERVER_MESSAGE", (message) => {
       if (this._isMounted) {
@@ -41,19 +37,29 @@ export default class ChatPage extends React.Component {
           let newMessages = [...this.state.messages, message];
           console.log(">>>", newMessages);
           this.setState({ messages: newMessages });
+        } else {
+          this.setState({ messages: [message] });
         }
       }
     });
 
-    socket.on("SERVER_REGISTER_MESSAGE", (message) => {
+    socket.on("SERVER_REGISTER", (message) => {
       if (this._isMounted) {
         this.setState({
           username: message.username,
           connected: true,
         });
+
+        if (this.state.messages) {
+          let newMessages = [...this.state.messages, message.botMessage];
+          console.log(">>>", newMessages);
+          this.setState({ messages: newMessages });
+        } else {
+          this.setState({ messages: [message.botMessage] });
+        }
       }
 
-      console.log("[@ChatPage] SERVER_REGISTER_MESSAGE:\n", message);
+      console.log("got SERVER_REGISTER:\n", message);
     });
   }
 
