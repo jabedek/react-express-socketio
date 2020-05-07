@@ -89,7 +89,7 @@ export class JoinForm extends React.Component {
 
         <div className="button-wrapper" style={this.state.btnVisibility}>
           <Link to="chat">
-            <Button text={"Go"} classes={"join-button"} />
+            <Button text={"Go"} classes={"join-button "} />
           </Link>
         </div>
       </form>

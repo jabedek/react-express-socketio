@@ -6,15 +6,15 @@
   flex-direction: column;
 
   box-sizing: border-box;
-  font: 400 1.2rem "Open Sans", sans-serif;
+  font: 400 1.1rem "Open Sans", sans-serif;
   color: #ddd;
 
   border-right: 0.1rem solid rgba(63, 63, 86, 0.6);
 
   &__header {
-    height: 14%;
-    padding: 0 1.75rem;
+    height: 11%;
     width: 100%;
+    padding-left: 1.2rem;
     display: flex;
     align-items: center;
     border-bottom: 0.1rem solid rgba(63, 63, 86, 0.6);
@@ -25,12 +25,18 @@
   &__list {
     display: flex;
     flex-direction: column;
-    padding-left: 1.75rem;
 
+    padding-left: 1.2rem;
     color: #99a;
   }
 
   &__item {
     margin: 1rem 0;
+    text-shadow: 0.5rem 0.5rem 0.75rem rgba(0, 0, 0, 0.8);
+  }
+
+  &__value {
+    margin-top: 0.4rem;
+    color: rgb(200, 200, 100);
   }
 }

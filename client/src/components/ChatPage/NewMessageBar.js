@@ -10,16 +10,7 @@ export class NewMessageBar extends React.Component {
     this.state = { text: "", username: props.username, time: null };
   }
 
-  // Message submit
-  // sendMessage = () => {
-  //   this.props.handleClick(this.state.text);
-  //   this.setState({ text: "" });
-  // };
   sendMessage = () => {
-    // this.props.handleClick(this.state.text);
-
-    console.log("Sending to server...");
-
     socket.emit("USER_MESSAGE", {
       username: this.state.username,
       text: this.state.text,

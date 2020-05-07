@@ -5,13 +5,13 @@
   flex-direction: column;
 
   box-sizing: border-box;
-  font: 400 1.2rem "Open Sans", sans-serif;
+  font: 400 1.1rem "Open Sans", sans-serif;
   color: #ddd;
 
   &__header {
-    height: 14%;
+    height: 11%;
     width: 100%;
-    padding: 0 1.75rem;
+    padding-left: 1.2rem;
     display: flex;
     align-items: center;
     border-bottom: 0.1rem solid rgba(63, 63, 86, 0.6);
@@ -23,7 +23,7 @@
   }
 
   &__list-wrapper {
-    height: 86%;
+    height: 89%;
     width: 100%;
     background: rgba(15, 15, 40, 0.5);
     display: flex;
@@ -44,7 +44,7 @@
     height: 100%;
 
     border: 0.1rem solid rgba(63, 63, 86, 0.6);
-    border-radius: 0.25rem;
+    border-radius: 0.175rem;
 
     background: rgb(45, 45, 68);
 

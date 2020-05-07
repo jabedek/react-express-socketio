@@ -19,10 +19,10 @@ export const SideBar = (props) => {
       const listUsers = users.map((user, index) => (
         <li key={index}>{user.username}</li>
       ));
-      return <ul id="users">{listUsers}</ul>;
+      return <ul className="sidebar__value">{listUsers}</ul>;
     }
 
-    return <p id="users">users.length</p>;
+    return <p className="sidebar__value">{users.length}</p>;
   };
 
   return (
@@ -31,17 +31,20 @@ export const SideBar = (props) => {
 
       <ul className="sidebar__list">
         <li className="sidebar__item">
-          <i className="fas fa-comments"></i> You:
-          <p id="current-user">{username}</p>
+          <i className="cube icon"></i>
+          Room:
+          <p className="sidebar__value">{room}</p>
         </li>
 
         <li className="sidebar__item">
-          <i className="fas fa-comments"></i> Room:
-          <p id="room-name">{room}</p>
+          <i className=" eye icon"></i>
+          You:
+          <p className="sidebar__value">{username}</p>
         </li>
 
         <li className="sidebar__item">
-          <i className="fas fa-users"></i> Users:
+          <i className=" users icon"></i>
+          Users:
           {renderUsers()}
         </li>
       </ul>

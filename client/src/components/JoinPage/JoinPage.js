@@ -2,12 +2,10 @@ import React from "react";
 import { Header } from "../Header/Header";
 import "./JoinPage.scss";
 import panorama from "./panorama.png";
-// import { JoinForm } from "./JoinForm";
 import "./JoinForm.scss";
 import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { socket } from "../../service/socket";
-import moment from "moment";
 
 export default class JoinPage extends React.Component {
   constructor(props) {

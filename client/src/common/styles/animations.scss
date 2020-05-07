@@ -2,6 +2,9 @@
   animation: slide-to-leftTop 0.8s linear;
 }
 
+.animation-delayed-appear {
+  animation: animation-delayed-appear 2s linear;
+}
 .animation-vibrating {
   animation: animation-vibrating 4s linear infinite;
 }
@@ -19,6 +22,19 @@
 
 .animation-appear {
   animation: animation-appear 0.5s 0.3s ease;
+}
+
+@keyframes animation-delayed-appear {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes animation-appear {

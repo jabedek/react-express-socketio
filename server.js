@@ -3,7 +3,6 @@ const express = require("express");
 const socket = require("socket.io");
 const path = require("path");
 const logger = require("./middleware/logger");
-const moment = require("moment");
 const formatMessage = require("./utils/messages");
 const {
   userJoin,

@@ -117,7 +117,10 @@ export default class ChatPage extends React.Component {
         ) : (
           // <div className="button-wrapper" style={this.state.btnVisibility}>
           <Link to="/">
-            <Button text={"Back"} classes={"home-button"} />
+            <Button
+              text={"Back"}
+              classes={"home-button animation-delayed-appear"}
+            />
           </Link>
           // </div>
         )}
