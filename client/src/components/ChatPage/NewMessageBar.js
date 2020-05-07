@@ -2,18 +2,31 @@ import React from "react";
 import { Button } from "../Button/Button";
 import "./NewMessageBar.scss";
 import moment from "moment";
+import { socket } from "../../service/socket";
 
 export class NewMessageBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { message: "", author: props.username, time: null };
+    this.state = { text: "", username: props.username, time: null };
   }
 
   // Message submit
+  // sendMessage = () => {
+  //   this.props.handleClick(this.state.text);
+  //   this.setState({ text: "" });
+  // };
   sendMessage = () => {
-    this.setState({ time: moment().format("h:mm") });
-    this.props.handleClick(this.state.message);
+    // this.props.handleClick(this.state.text);
+
+    console.log("Sending to server...");
+
+    socket.emit("USER_MESSAGE", {
+      username: this.state.username,
+      text: this.state.text,
+      time: moment().format("h:mm:ss"),
+    });
     this.setState({ message: "" });
+    this.setState({ text: "" });
   };
 
   render() {
@@ -26,24 +39,29 @@ export class NewMessageBar extends React.Component {
             id="msg"
             type="text"
             placeholder="Enter a message"
-            value={this.state.message}
+            value={this.state.text}
             name="message"
             autoComplete="off"
             spellCheck="false"
             className="message__input "
             onChange={(event) => {
-              this.setState({ message: event.target.value });
+              this.setState({ text: event.target.value });
             }}
             onKeyDown={(e) => {
               if (e.keyCode === 13 && e.shiftKey === false) {
                 e.preventDefault();
-                this.sendMessage();
-                // sendMessage();
+                if (this.state.text) {
+                  this.sendMessage();
+                }
               }
             }}
           />
           <Button
-            handleClick={this.sendMessage}
+            handleClick={() => {
+              if (this.state.text) {
+                this.sendMessage();
+              }
+            }}
             text={">"}
             classes={"send-button"}
           />
