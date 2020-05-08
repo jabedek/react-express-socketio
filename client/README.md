@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Important
 
-You have to do 'npm install' in project's main dir and /client dir.
+You have to do `npm install` in project's main dir and '/client' dir.
 
 ## Available Scripts
 
