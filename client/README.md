@@ -1,18 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Important:
+## Important
 
-You have do 'npm install' in main (/react-express-socketio) dir and /client dir.
+You have do 'npm install' in project main dir and /client dir.
 
 ## Available Scripts
 
 In the project directory, you can run:
-
-### `npm run dev`
-
-Runs both backend server and React client server <br />
-Server [http://localhost:5000](http://localhost:5000).
-Client [http://localhost:3000](http://localhost:3000).
 
 ### `npm start`
 
