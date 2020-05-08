@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 ### `npm run dev`
 
-Runs both backend server and React client server <br />
+Runs backend and client servers concurrently <br />
 Server [http://localhost:5000](http://localhost:5000).
 Client [http://localhost:3000](http://localhost:3000).
 
