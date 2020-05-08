@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run dev`
+
+Runs both backend server and React client server <br />
+Server [http://localhost:5000](http://localhost:5000).
+Client [http://localhost:3000](http://localhost:3000).
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
